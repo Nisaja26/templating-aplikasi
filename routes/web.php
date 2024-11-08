@@ -25,7 +25,7 @@ Route::get('/logout', [AdminAuthController::class, 'logout'])->middleware('auth'
         'content' => 'admin.dashboard.index'  
     ];
     return view('admin.layouts.wrapper', $data);
- });
+ })->middleware('auth');
 
     Route::prefix('/admin')->middleware('auth')->group(function () {
       Route::get('/dashboard', function () { 
